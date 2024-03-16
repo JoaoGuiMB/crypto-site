@@ -8,7 +8,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <main className="h-screen">
       <Header />
-      {children}
+      <div className="h-[calc(100%-8%)]">{children}</div>
     </main>
   );
 };
