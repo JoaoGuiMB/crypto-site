@@ -13,7 +13,7 @@ export function ModeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <div className="fixed top-5 right-5">
+    <div className="mr-5">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="outline" size="icon">

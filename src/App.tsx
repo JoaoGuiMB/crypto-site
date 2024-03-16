@@ -1,11 +1,14 @@
 import "./App.css";
-import { ThemeProvider } from "./context/theme-provider";
-import { ModeToggle } from "./components/ui/mode-toggle";
+import { ThemeProvider } from "@/context/theme-provider";
+import Layout from "./components/layout";
+import Routings from "./components/router/Routings";
 
 function App() {
   return (
     <ThemeProvider>
-      <ModeToggle />
+      <Layout>
+        <Routings />
+      </Layout>
     </ThemeProvider>
   );
 }
