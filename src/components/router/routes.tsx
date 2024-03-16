@@ -8,7 +8,11 @@ const CoinDetails = lazy(() => import("@/pages/CoinDetails"));
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Home />
+      </Suspense>
+    ),
   },
   {
     path: "/coin/:id",
