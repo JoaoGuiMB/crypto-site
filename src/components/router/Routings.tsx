@@ -1,20 +1,9 @@
-import { Suspense } from "react";
-import { Routes, Route, HashRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
-import { routes } from "./routes";
+import { router } from "./routes";
 
 const Routings = () => {
-  return (
-    <Suspense>
-      <HashRouter>
-        <Routes>
-          {routes.map((routeProps) => (
-            <Route {...routeProps} key={routeProps.path as string} />
-          ))}
-        </Routes>
-      </HashRouter>
-    </Suspense>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default Routings;

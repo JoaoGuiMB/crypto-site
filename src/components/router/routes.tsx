@@ -1,13 +1,16 @@
 import React from "react";
-import type { PathRouteProps } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 const Home = React.lazy(() => import("@/pages/Home"));
+const CoinDetails = React.lazy(() => import("@/pages/CoinDetails"));
 
-export const routes: Array<PathRouteProps> = [
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
   },
-];
-
-export const privateRoutes: Array<PathRouteProps> = [];
+  {
+    path: "/coin/:id",
+    element: <CoinDetails />,
+  },
+]);
