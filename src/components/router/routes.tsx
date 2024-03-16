@@ -1,8 +1,9 @@
-import React from "react";
+import { Suspense, lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import Loader from "../common/loader";
 
-const Home = React.lazy(() => import("@/pages/Home"));
-const CoinDetails = React.lazy(() => import("@/pages/CoinDetails"));
+const Home = lazy(() => import("@/pages/Home"));
+const CoinDetails = lazy(() => import("@/pages/CoinDetails"));
 
 export const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ export const router = createBrowserRouter([
   },
   {
     path: "/coin/:id",
-    element: <CoinDetails />,
+    element: (
+      <Suspense fallback={<Loader />}>
+        <CoinDetails />
+      </Suspense>
+    ),
   },
 ]);

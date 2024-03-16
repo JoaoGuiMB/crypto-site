@@ -6,7 +6,7 @@ export const coinsApi = createApi({
   reducerPath: "coinsApi",
   baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
   endpoints: (builder) => ({
-    getCoins: builder.query<Coin, string>({
+    getCoins: builder.query<Coin[], string>({
       query: () =>
         `coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false/`,
     }),
