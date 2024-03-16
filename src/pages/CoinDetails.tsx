@@ -1,17 +1,12 @@
+import PriceChart from "@/components/coin-details/PriceChart";
 import ErrorComponent from "@/components/common/error";
 import Loader from "@/components/common/loader";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   useGetCoinHistoryQuery,
   useGetCoinInfoQuery,
 } from "@/redux/services/coins.slice";
-import { Car } from "lucide-react";
+
 import { useParams } from "react-router-dom";
 
 export default function CoinDetails() {
@@ -29,7 +24,6 @@ export default function CoinDetails() {
 
   if (isLoadingCoinInfo || isLoadingCoinHistory) return <Loader />;
   if (errorCoinInfo || errorCoinHistory) return <ErrorComponent />;
-  console.log({ coinHistory });
 
   return (
     <>
@@ -39,6 +33,9 @@ export default function CoinDetails() {
             <h2 className="text-3xl font-bold tracking-tight">
               {coinInfo?.name}
             </h2>
+            <div>
+              <img src={coinInfo?.image.small} alt={"Coin"} />
+            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             <Card>
@@ -130,24 +127,14 @@ export default function CoinDetails() {
               </CardContent>
             </Card>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+          <div className="grid grid-cols-1">
             <Card className="col-span-4">
               <CardHeader>
-                <CardTitle>Overview</CardTitle>
+                <CardTitle>Price overview</CardTitle>
               </CardHeader>
-              <CardContent className="pl-2">Oii gráfico</CardContent>
-            </Card>
-            <Card className="col-span-3">
-              <CardHeader>
-                <CardTitle>About</CardTitle>
-                <CardDescription
-                  dangerouslySetInnerHTML={{
-                    __html: coinInfo?.description["en"] || "",
-                  }}
-                  className="text-md p-2"
-                />
-              </CardHeader>
-              <CardContent></CardContent>
+              <CardContent className="pl-2">
+                <PriceChart coinHistory={coinHistory} />
+              </CardContent>
             </Card>
           </div>
         </div>

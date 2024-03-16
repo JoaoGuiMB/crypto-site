@@ -36,7 +36,11 @@ export interface CoinInfo {
   id: string;
   symbol: string;
   name: string;
-  image: string;
+  image: {
+    thumb: string;
+    small: string;
+    large: string;
+  };
   description: {
     en: string;
   };
@@ -64,4 +68,10 @@ export interface CoinInfo {
     atl_date: string;
   };
   last_updated: string;
+}
+
+export interface CoinHistory {
+  prices: [number, number][];
+  market_caps: [number, number][];
+  total_volumes: [number, number][];
 }

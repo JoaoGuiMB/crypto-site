@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Coin, CoinInfo } from "@/types/Coin";
+import type { Coin, CoinHistory, CoinInfo } from "@/types/Coin";
 
 const BASE_URL = "https://api.coingecko.com/api/v3/";
 export const coinsApi = createApi({
@@ -14,9 +14,9 @@ export const coinsApi = createApi({
       query: (id) =>
         `coins/${id}?localization=false&tickers=false&market_data=true`,
     }),
-    getCoinHistory: builder.query<Coin, string>({
+    getCoinHistory: builder.query<CoinHistory, string>({
       query: (id) =>
-        `coins/${id}/market_chart?vs_currency=usd&days=1&precision=2`,
+        `coins/${id}/market_chart?vs_currency=usd&days=30&interval=daily`,
     }),
   }),
 });

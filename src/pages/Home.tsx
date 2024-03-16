@@ -8,7 +8,6 @@ const Home = () => {
 
   if (isLoading) return <Loader />;
   if (error) return <ErrorComponent />;
-  console.log(data);
   return (
     <div className="flex flex-col justify-center items-center pt-8">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
