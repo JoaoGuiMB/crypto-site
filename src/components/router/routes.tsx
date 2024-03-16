@@ -7,7 +7,7 @@ const CoinDetails = lazy(() => import("@/pages/CoinDetails"));
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: "*",
     element: (
       <Suspense fallback={<Loader />}>
         <Home />
