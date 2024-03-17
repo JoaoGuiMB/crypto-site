@@ -121,7 +121,10 @@ export default function CoinDetails() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  $ {coinInfo?.market_data.market_cap["usd"].toLocaleString()}{" "}
+                  ${" "}
+                  {coinInfo?.market_data.market_cap["usd"].toLocaleString(
+                    "en-US"
+                  )}{" "}
                   USD
                 </div>
               </CardContent>
